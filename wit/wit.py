@@ -110,3 +110,24 @@ class Wit(object):
                 print(self.message(message, context))
             else:
                 print(handle_message(self.message(message, context)))
+
+    def add_new_entity(self, id, doc):
+        """
+        Sends a new entity and add it.
+        :param id:
+        :param doc:
+        :return: response that show result of adding entity.
+        """
+        request_body = {
+            "doc": doc,
+            "id": id
+        }
+        response = req(logger=self.logger, access_token=self.access_token, meth='POST', path='/entities',
+                       params=request_body)
+
+        print(requests.request("POST", "https://api.wit.ai", ))
+        return response
+
+
+wit_cli = Wit("NB4KHA3AQVHTI252HHIY6NPNO5FOEUZ7")
+wit_cli.add_new_entity("3000", "سلام")
